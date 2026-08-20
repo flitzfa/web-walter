@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Projects from '../components/Projects.astro';
+import Gallery from '../components/Gallery.astro';
+import Listen from '../components/Listen.astro';
+import Contact from '../components/Contact.astro';
+import { site } from '../content/site';
+---
+
+<BaseLayout title={`${site.artist.name} — Guitarrista`} description={site.artist.description}>
+  <Header />
+  <main id="main-content">
+    <Hero />
+    <section class="bio" id="bio" aria-labelledby="bio-title">
+      <div class="shell bio__inner">
+        <p class="bio__label">Acerca de</p>
+        <div>
+          <h2 id="bio-title">La guitarra como punto de encuentro.</h2>
+          <!-- TODO: reemplazar con bio real -->
+          <p>{site.artist.bio}</p>
+        </div>
+      </div>
+    </section>
+    <Projects />
+    <Gallery />
+    <Listen />
+  </main>
+  <Contact />
+</BaseLayout>

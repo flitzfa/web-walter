@@ -1,0 +1,27 @@
+---
+import { site } from '../content/site';
+import SectionHeading from './SectionHeading.astro';
+---
+
+<section class="section projects" id="proyectos" aria-labelledby="projects-title">
+  <div class="shell">
+    <SectionHeading number="01" eyebrow="Universos sonoros" title="Proyectos" intro="Tres formas de tocar, investigar y compartir música." />
+    <div class="project-grid">
+      {site.projects.map((project) => (
+        <article class:list={['project-card', `project-card--${project.color}`]}>
+          <div class="project-card__art" aria-label={`Placeholder de imagen para ${project.name}`} role="img">
+            <span>{project.art}</span>
+            <small>Imagen / arte pendiente</small>
+          </div>
+          <div class="project-card__body">
+            <p class="project-card__kind">{project.kind}</p>
+            <h3>{project.name}</h3>
+            <p class="project-card__genre">{project.genre}</p>
+            <p class="project-card__detail">{project.detail}</p>
+            <a href={project.instagram} target="_blank" rel="noreferrer">Ver en Instagram <span>↗</span></a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

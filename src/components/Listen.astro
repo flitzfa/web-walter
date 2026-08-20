@@ -1,0 +1,33 @@
+---
+import { site } from '../content/site';
+import SectionHeading from './SectionHeading.astro';
+---
+
+<section class="section listen" id="escucha" aria-labelledby="listen-title">
+  <div class="shell">
+    <SectionHeading number="03" eyebrow="Sonido" title="Escuchá" intro="Una puerta de entrada a la música, desde el escenario hasta donde estés." />
+    <div class="listen-grid">
+      <article class="embed-card embed-card--youtube">
+        <div class="embed-card__label">Video destacado <span>YouTube</span></div>
+        <!-- TODO: Agregar la URL real del embed de YouTube en src/content/site.ts. -->
+        <div class="video-frame">
+          {site.media.youtubeUrl ? (
+            <iframe src={site.media.youtubeUrl} title={site.media.youtubeTitle} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          ) : (
+            <p class="video-frame__placeholder">YouTube · video pendiente</p>
+          )}
+        </div>
+      </article>
+      <article class="embed-card embed-card--instagram">
+        <div class="embed-card__label">Más movimiento <span>Instagram Reels</span></div>
+        <!-- TODO: Reemplazar REEL_ID en src/content/site.ts por un reel público. -->
+        <div class="reel-placeholder">
+          <span class="reel-placeholder__icon">◉</span>
+          <p>Reel destacado</p>
+          <small>Embed de Instagram listo para conectar</small>
+          <a href={site.media.instagramUrl} target="_blank" rel="noreferrer">Abrir reel ↗</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
