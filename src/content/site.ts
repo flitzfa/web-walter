@@ -7,8 +7,7 @@ export const site = {
     name: 'Walter Zelaya',
     role: 'Guitarrista · Buenos Aires',
     description: 'Guitarrista de Buenos Aires. Proyectos propios, colaboraciones y música en movimiento.',
-    bio: 'Walter Zelaya es guitarrista y músico activo de la escena de Buenos Aires. Su recorrido se mueve entre la canción, el folclore, el jazz y las músicas de raíz latinoamericana.',
-    // TODO: Reemplazar por una bio aprobada por el artista.
+    bio: 'Walter Zelaya es guitarrista y músico de la escena de Buenos Aires. Se formó en el Conservatorio de Música Leopoldo Marechal y profundizó su lenguaje en armonía e improvisación jazz con Daniel Pellegrini, Pino Marrone y Néstor Gómez, entre otros; composición con Javier González; y arreglos para secciones de vientos con Bernardo Vásquez y Valentín Reiners. Acompañó proyectos de folklore y participó en grupos de jazz y fusión, compartiendo música con Leo Villagra, Leopoldo Deza, Manolo Salguero y Jero Santillán. Integró La Tríada, proyecto instrumental con Marito y Nelson que se presentó como trío en el Festival de Baradero. Actualmente forma parte de 620 Trío y Matungo Ensamble, y lleva su música a teatros, bares y festivales.',
     email: 'hola@walterzelaya.com', // TODO: Reemplazar por el correo real.
   },
   hero: {
@@ -56,6 +55,32 @@ export const site = {
     youtubeTitle: 'Walter Zelaya en vivo — video pendiente',
     instagramUrl: 'https://www.instagram.com/reel/REEL_ID/embed', // TODO: Reemplazar REEL_ID por un reel público.
   },
+  spotify: [
+    {
+      label: 'Álbum',
+      title: 'Andrés Alcoba – Walter Zelaya',
+      href: 'https://open.spotify.com/album/5SufZDfpzkcDiH0H6FDhkq',
+    },
+    {
+      label: 'Perfil de artista',
+      title: 'Andrés Alcoba – Walter Zelaya',
+      href: 'https://open.spotify.com/artist/1ySAFPJ6rySRxjvK2pTJcs',
+    },
+    {
+      label: 'Álbum',
+      title: 'Andrés Alcoba – Walter Zelaya',
+      href: 'https://open.spotify.com/album/1j3n7mWhkFqOGkWUabe5OA',
+    },
+  ],
+  shows: [
+    {
+      date: '17 SEP',
+      dateLabel: '17 de septiembre',
+      venue: 'Sheykobs',
+      location: 'Palermo, Buenos Aires',
+      project: 'Con Jero Santillán Grupo',
+    },
+  ],
   socials: [
     { label: 'Instagram', href: '#' }, // TODO: Reemplazar enlaces reales.
     { label: 'YouTube', href: '#' },

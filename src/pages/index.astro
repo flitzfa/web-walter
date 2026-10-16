@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import Projects from '../components/Projects.astro';
 import Gallery from '../components/Gallery.astro';
+import Shows from '../components/Shows.astro';
 import Listen from '../components/Listen.astro';
 import Contact from '../components/Contact.astro';
 import { site } from '../content/site';
@@ -18,13 +19,13 @@ import { site } from '../content/site';
         <p class="bio__label">Acerca de</p>
         <div>
           <h2 id="bio-title">La guitarra como punto de encuentro.</h2>
-          <!-- TODO: reemplazar con bio real -->
           <p>{site.artist.bio}</p>
         </div>
       </div>
     </section>
     <Projects />
     <Gallery />
+    <Shows />
     <Listen />
   </main>
   <Contact />

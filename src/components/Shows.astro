@@ -1,0 +1,22 @@
+---
+import { site } from '../content/site';
+import SectionHeading from './SectionHeading.astro';
+---
+
+<section class="section shows" id="fechas" aria-labelledby="shows-title">
+  <div class="shell">
+    <SectionHeading number="03" eyebrow="Próximos encuentros" title="Fechas" intro="Dónde encontrar a Walter sobre el escenario." />
+    <div class="shows-list">
+      {site.shows.map((show) => (
+        <article class="show-card">
+          <time class="show-card__date">{show.date}</time>
+          <div class="show-card__venue">
+            <h3>{show.venue}</h3>
+            <p>{show.location}</p>
+          </div>
+          <p class="show-card__project">{show.project}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
