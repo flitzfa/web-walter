@@ -1,0 +1,7 @@
+{"message":"connected.","label":"vite","level":"info"}
+require is not defined
+  Location:
+    C:\Users\flitzfa\OneDrive\Documentos\Páginas\walter-music\node_modules\picomatch\index.js:3:14
+  Stack trace:
+    at eval (C:\Users\flitzfa\OneDrive\Documentos\Páginas\walter-music\node_modules\picomatch\index.js:3:14)
+    at ModuleRunner.directRequest (file:///C:/Users/flitzfa/OneDrive/Documentos/P%C3%A1ginas/walter-music/node_modules/vite/dist/node/module-runner.js:1268:80)

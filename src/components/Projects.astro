@@ -1,24 +1,28 @@
 ---
-import { site } from '../content/site';
+import { isValidExternalUrl, site } from '../content/site';
 import SectionHeading from './SectionHeading.astro';
 ---
 
 <section class="section projects" id="proyectos" aria-labelledby="projects-title">
   <div class="shell">
-    <SectionHeading number="01" eyebrow="Universos sonoros" title="Proyectos" intro="Tres formas de tocar, investigar y compartir música." />
+    <SectionHeading id="projects-title" number="01" eyebrow="Universos sonoros" title="Proyectos y trabajos" intro="Proyectos propios, discografía y colaboraciones." />
     <div class="project-grid">
       {site.projects.map((project) => (
         <article class:list={['project-card', `project-card--${project.color}`]}>
-          <div class="project-card__art" aria-label={`Placeholder de imagen para ${project.name}`} role="img">
-            <span>{project.art}</span>
-            <small>Imagen / arte pendiente</small>
-          </div>
+          {site.features.showProjectArtwork && (
+            <div class="project-card__art" aria-label={`Placeholder de imagen para ${project.name}`} role="img">
+              <span>{project.art}</span>
+              <small>Imagen / arte pendiente</small>
+            </div>
+          )}
           <div class="project-card__body">
             <p class="project-card__kind">{project.kind}</p>
             <h3>{project.name}</h3>
             <p class="project-card__genre">{project.genre}</p>
             <p class="project-card__detail">{project.detail}</p>
-            <a href={project.instagram} target="_blank" rel="noreferrer">Ver en Instagram <span>↗</span></a>
+            {project.links.filter((link) => isValidExternalUrl(link.href)).map((link) => (
+              <a href={link.href} target="_blank" rel="noreferrer">{link.label} <span aria-hidden="true">↗</span></a>
+            ))}
           </div>
         </article>
       ))}

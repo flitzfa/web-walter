@@ -9,8 +9,11 @@ import { site } from '../content/site';
   <div class="hero__guitar" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <div class="hero__content shell">
     <p class="eyebrow"><span></span>{site.hero.eyebrow}</p>
-    <h1 id="hero-title">{site.hero.title.map((line) => <span>{line}</span>)}</h1>
-    <p class="hero__role">{site.artist.name} <i></i> {site.artist.role}</p>
+    <h1 id="hero-title" class="hero__title">
+      {site.artist.name.split(' ').map((word) => <span>{word}</span>)}
+    </h1>
+    <p class="hero__role">{site.artist.role}</p>
+    <p class="hero__slogan">{site.hero.slogan}</p>
     <div class="hero__actions">
       <a class="button button--primary" href="#proyectos">Ver proyectos <span>↘</span></a>
       <a class="button button--ghost" href="#escucha">Escuchá <span>↘</span></a>

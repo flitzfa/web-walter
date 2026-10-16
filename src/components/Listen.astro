@@ -1,40 +1,36 @@
 ---
-import { site } from '../content/site';
+import { isValidExternalUrl, site, toYouTubeEmbedUrl } from '../content/site';
 import SectionHeading from './SectionHeading.astro';
+
+const youtubeEmbedUrl = toYouTubeEmbedUrl(site.media.youtubeUrl);
+const instagramUrl = isValidExternalUrl(site.media.instagramUrl) ? site.media.instagramUrl : null;
 ---
 
 <section class="section listen" id="escucha" aria-labelledby="listen-title">
   <div class="shell">
-    <SectionHeading number="04" eyebrow="Sonido" title="Escuchá" intro="Una puerta de entrada a la música, desde el escenario hasta donde estés." />
-    <div class="listen-grid">
-      <article class="embed-card embed-card--youtube">
-        <div class="embed-card__label">Video destacado <span>YouTube</span></div>
-        <!-- TODO: Agregar la URL real del embed de YouTube en src/content/site.ts. -->
-        <div class="video-frame">
-          {site.media.youtubeUrl ? (
-            <iframe src={site.media.youtubeUrl} title={site.media.youtubeTitle} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-          ) : (
-            <p class="video-frame__placeholder">YouTube · video pendiente</p>
-          )}
-        </div>
-      </article>
-      <article class="embed-card embed-card--instagram">
-        <div class="embed-card__label">Más movimiento <span>Instagram Reels</span></div>
-        <!-- TODO: Reemplazar REEL_ID en src/content/site.ts por un reel público. -->
-        <div class="reel-placeholder">
-          <span class="reel-placeholder__icon">◉</span>
-          <p>Reel destacado</p>
-          <small>Embed de Instagram listo para conectar</small>
-          <a href={site.media.instagramUrl} target="_blank" rel="noreferrer">Abrir reel ↗</a>
-        </div>
-      </article>
-    </div>
+    <SectionHeading id="listen-title" number="04" eyebrow="Sonido" title="Escuchá" intro="Una puerta de entrada a la música, desde el escenario hasta donde estés." />
+    {(youtubeEmbedUrl || instagramUrl) && <div class="listen-grid">
+      {youtubeEmbedUrl && (
+        <article class="embed-card embed-card--youtube">
+          <div class="embed-card__label">Video destacado <span>YouTube</span></div>
+          <div class="video-frame">
+            <iframe src={youtubeEmbedUrl} title={site.media.youtubeTitle} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </article>
+      )}
+      {instagramUrl && (
+        <article class="embed-card embed-card--instagram">
+          <div class="embed-card__label">Más movimiento <span>Instagram Reels</span></div>
+          <iframe class="instagram-frame" src={site.media.instagramUrl} title="Reel de Walter Zelaya" loading="lazy"></iframe>
+        </article>
+      )}
+    </div>}
     <section class="spotify-links" aria-labelledby="spotify-title">
       <div class="spotify-links__heading">
         <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 1 0 .001 24.001A12 12 0 0 0 12 0Zm5.502 17.315a.747.747 0 0 1-1.028.249c-2.815-1.72-6.36-2.11-10.537-1.158a.75.75 0 0 1-.332-1.463c4.572-1.04 8.486-.6 11.606 1.307.355.217.467.68.25 1.035Zm1.468-3.263a.935.935 0 0 1-1.287.308c-3.22-1.977-8.128-2.55-11.936-1.394a.936.936 0 1 1-.544-1.79c4.35-1.32 9.758-.68 13.46 1.594.44.27.58.845.307 1.278Zm.127-3.396C15.235 8.36 8.865 8.15 5.175 9.27a1.123 1.123 0 1 1-.653-2.148c4.237-1.287 11.28-1.038 15.729 1.604a1.122 1.122 0 1 1-1.154 1.93Z" /></svg>
         <div>
-          <p>También en Spotify</p>
-          <h3 id="spotify-title">Andrés Alcoba – Walter Zelaya</h3>
+          <p>Discografía y perfil</p>
+          <h3 id="spotify-title">Walter Zelaya en Spotify</h3>
         </div>
       </div>
       <ul>
@@ -43,6 +39,7 @@ import SectionHeading from './SectionHeading.astro';
             <a href={item.href} target="_blank" rel="noreferrer">
               <span>{item.label}</span>
               <strong>{item.title}</strong>
+              <small>{item.byline}</small>
               <b aria-hidden="true">↗</b>
             </a>
           </li>

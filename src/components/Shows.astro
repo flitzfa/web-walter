@@ -1,18 +1,22 @@
 ---
 import { site } from '../content/site';
 import SectionHeading from './SectionHeading.astro';
+
+const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Argentina/Buenos_Aires' }).format(new Date());
+const upcomingShows = site.shows.upcoming.filter((show) => show.date >= today);
 ---
 
+{upcomingShows.length > 0 && (
 <section class="section shows" id="fechas" aria-labelledby="shows-title">
   <div class="shell">
-    <SectionHeading number="03" eyebrow="Próximos encuentros" title="Fechas" intro="Dónde encontrar a Walter sobre el escenario." />
-    <div class="shows-list">
-      {site.shows.map((show) => (
+    <SectionHeading id="shows-title" number="03" eyebrow="Agenda" title="Fechas" intro={site.shows.agendaNote} />
+    <div class="shows-list" aria-label="Próximas fechas">
+      {upcomingShows.map((show) => (
         <article class="show-card">
-          <time class="show-card__date">{show.date}</time>
+          <time class="show-card__date" datetime={show.date}>{show.dateLabel}</time>
           <div class="show-card__venue">
             <h3>{show.venue}</h3>
-            <p>{show.location}</p>
+            {show.location && <p>{show.location}</p>}
           </div>
           <p class="show-card__project">{show.project}</p>
         </article>
@@ -20,3 +24,4 @@ import SectionHeading from './SectionHeading.astro';
     </div>
   </div>
 </section>
+)}

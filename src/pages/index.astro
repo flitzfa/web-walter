@@ -10,7 +10,7 @@ import Contact from '../components/Contact.astro';
 import { site } from '../content/site';
 ---
 
-<BaseLayout title={`${site.artist.name} — Guitarrista`} description={site.artist.description}>
+<BaseLayout title={`${site.artist.name} — Guitarrista, compositor y arreglador`} description={site.artist.description}>
   <Header />
   <main id="main-content">
     <Hero />
@@ -19,7 +19,7 @@ import { site } from '../content/site';
         <p class="bio__label">Acerca de</p>
         <div>
           <h2 id="bio-title">La guitarra como punto de encuentro.</h2>
-          <p>{site.artist.bio}</p>
+          {site.artist.bio.map((paragraph) => <p>{paragraph}</p>)}
         </div>
       </div>
     </section>

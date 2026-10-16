@@ -3,20 +3,22 @@ import { site } from '../content/site';
 import SectionHeading from './SectionHeading.astro';
 ---
 
-<section class="section gallery" id="en-vivo" aria-labelledby="gallery-title">
-  <div class="shell">
-    <SectionHeading number="02" eyebrow="Registro de escena" title="En vivo" intro="Momentos de amplificadores, respiración y luces bajas." />
-    <!-- TODO: Reemplazar estos placeholders por fotos de shows en alta resolución. -->
-    <div class="gallery-grid">
-      {site.gallery.map((image, index) => (
-        <figure class:list={['gallery-item', `gallery-item--${image.shape}`]}>
-          <div class={`gallery-item__placeholder gallery-item__placeholder--${index + 1}`} role="img" aria-label={`Placeholder: ${image.label}`}>
-            <span class="gallery-item__lights" aria-hidden="true"></span>
-            <small>{image.label}</small>
-            <b>{String(index + 1).padStart(2, '0')}</b>
-          </div>
-        </figure>
-      ))}
+{site.features.showGallery && (
+  <section class="section gallery" id="en-vivo" aria-labelledby="gallery-title">
+    <div class="shell">
+      <SectionHeading id="gallery-title" number="02" eyebrow="Registro de escena" title="En vivo" intro="Momentos de amplificadores, respiración y luces bajas." />
+      <!-- TODO: Reemplazar estos placeholders por fotos de shows en alta resolución. -->
+      <div class="gallery-grid">
+        {site.gallery.map((image, index) => (
+          <figure class:list={['gallery-item', `gallery-item--${image.shape}`]}>
+            <div class={`gallery-item__placeholder gallery-item__placeholder--${index + 1}`} role="img" aria-label={`Placeholder: ${image.label}`}>
+              <span class="gallery-item__lights" aria-hidden="true"></span>
+              <small>{image.label}</small>
+              <b>{String(index + 1).padStart(2, '0')}</b>
+            </div>
+          </figure>
+        ))}
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+)}
