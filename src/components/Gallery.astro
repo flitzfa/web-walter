@@ -6,7 +6,7 @@ import SectionHeading from './SectionHeading.astro';
 {site.features.showGallery && (
   <section class="section gallery" id="en-vivo" aria-labelledby="gallery-title">
     <div class="shell">
-      <SectionHeading id="gallery-title" number="02" eyebrow="Registro de escena" title="En vivo" intro="Momentos de amplificadores, respiración y luces bajas." />
+      <SectionHeading id="gallery-title" eyebrow="Registro de escena" title="En vivo" intro="Momentos de amplificadores, respiración y luces bajas." />
       <!-- TODO: Reemplazar estos placeholders por fotos de shows en alta resolución. -->
       <div class="gallery-grid">
         {site.gallery.map((image, index) => (

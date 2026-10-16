@@ -8,7 +8,7 @@ const instagramUrl = isValidExternalUrl(site.media.instagramUrl) ? site.media.in
 
 <section class="section listen" id="escucha" aria-labelledby="listen-title">
   <div class="shell">
-    <SectionHeading id="listen-title" number="04" eyebrow="Sonido" title="Escuchá" intro="Una puerta de entrada a la música, desde el escenario hasta donde estés." />
+    <SectionHeading id="listen-title" eyebrow="Sonido" title="Escuchá" intro="Una puerta de entrada a la música, desde el escenario hasta donde estés." />
     {(youtubeEmbedUrl || instagramUrl) && <div class="listen-grid">
       {youtubeEmbedUrl && (
         <article class="embed-card embed-card--youtube">

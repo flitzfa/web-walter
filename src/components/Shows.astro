@@ -9,7 +9,7 @@ const upcomingShows = site.shows.upcoming.filter((show) => show.date >= today);
 {upcomingShows.length > 0 && (
 <section class="section shows" id="fechas" aria-labelledby="shows-title">
   <div class="shell">
-    <SectionHeading id="shows-title" number="03" eyebrow="Agenda" title="Fechas" intro={site.shows.agendaNote} />
+    <SectionHeading id="shows-title" eyebrow="Agenda" title="Fechas" intro={site.shows.agendaNote} />
     <div class="shows-list" aria-label="Próximas fechas">
       {upcomingShows.map((show) => (
         <article class="show-card">

@@ -5,7 +5,7 @@ import SectionHeading from './SectionHeading.astro';
 
 <section class="section projects" id="proyectos" aria-labelledby="projects-title">
   <div class="shell">
-    <SectionHeading id="projects-title" number="01" eyebrow="Universos sonoros" title="Proyectos y trabajos" intro="Proyectos propios, discografía y colaboraciones." />
+    <SectionHeading id="projects-title" eyebrow="Universos sonoros" title="Proyectos y trabajos" intro="Proyectos propios, discografía y colaboraciones." />
     <div class="project-grid">
       {site.projects.map((project) => (
         <article class:list={['project-card', `project-card--${project.color}`]}>
