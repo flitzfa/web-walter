@@ -16,14 +16,12 @@ export const site = {
     role: 'Guitarrista · Compositor · Arreglador',
     description: 'Walter Zelaya, guitarrista, compositor y arreglador argentino. Jazz, folklore de proyección y música en vivo.',
     bio: [
-      'Egresado de la institución Leopoldo Marechal, Walter profundizó sus estudios de armonía e improvisación jazzística con Daniel Pellegrini, Pino Marrone y Néstor Gómez, entre otros. Estudió composición con Javier González y arreglos para secciones de vientos con Bernardo Vásquez y Valentín Reiners.',
+      'Egresado de la Escuela de Arte Nro 1 Leopoldo Marechal, Walter profundizó sus estudios de armonía e improvisación jazzística con Daniel Pellegrini, Pino Marrone y Néstor Gómez, entre otros. Estudió composición con Javier González y arreglos para secciones de vientos con Bernardo Vásquez y Valentín Reiners.',
       'Su trabajo como guitarrista, compositor y arreglador cruza el jazz argentino y el folklore de proyección. Acompañó proyectos de folklore y formó parte de grupos de jazz y fusión. Actualmente participa en Matungo Ensamble —proyecto de jazz rock con tres discos, donde trabajó como compositor y arreglador— y en 620 Trío, donde participó en la composición y los arreglos de “Transporte ideal”. Con Andrés Alcoba formó un dúo dedicado al folklore de proyección, con participación en la composición y los arreglos. También trabajó con Juan Enriquez en arreglos y producción musical.',
       'Participó en grabaciones junto a Leo Villagra, Leopoldo Deza y Juan Carlos Liendro, y compartió proyectos con Manolo Salguero y Jero Santillán. Con La Tríada, grupo instrumental junto a Marito y Nelson, tocó en formato de trío en el Festival de Baradero. Realizó giras por distintas provincias y se presentó en bares, teatros, televisión y streaming.',
     ],
     education: {
-      institution: 'Leopoldo Marechal',
-      namesToConfirm: ['Escuela de Arte Leopoldo Marechal', 'Conservatorio de Música Leopoldo Marechal'],
-      confirmation: 'Confirmar con Walter cuál es la denominación institucional exacta; no asumir que son instituciones distintas ni equivalentes.',
+      institution: 'Escuela de Arte Nro 1 Leopoldo Marechal',
     },
     email: 'walgerzel@gmail.com' as string | null,
     whatsappUrl: 'https://wa.me/5491161422171' as string | null,

@@ -17,9 +17,11 @@ import { site } from '../content/site';
     <section class="bio" id="bio" aria-labelledby="bio-title">
       <div class="shell bio__inner">
         <p class="bio__label">Acerca de</p>
-        <div>
+        <div class="bio__copy">
           <h2 id="bio-title">La guitarra como punto de encuentro.</h2>
-          {site.artist.bio.map((paragraph) => <p>{paragraph}</p>)}
+          <div class="bio__text">
+            {site.artist.bio.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
         </div>
       </div>
     </section>
