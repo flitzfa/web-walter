@@ -1,9 +1,9 @@
 ---
-import { site } from '../content/site';
+import { site, upcomingShows } from '../content/site';
 
 const navigation = [
   { label: 'Proyectos', href: '#proyectos' },
-  { label: 'Fechas', href: '#fechas' },
+  ...(upcomingShows().length ? [{ label: 'Fechas', href: '#fechas' }] : []),
   { label: 'Escuchá', href: '#escucha' },
   { label: 'Contacto', href: '#contacto' },
 ];

@@ -1,9 +1,8 @@
 ---
-import { site } from '../content/site';
+import { site, upcomingShows as getUpcomingShows } from '../content/site';
 import SectionHeading from './SectionHeading.astro';
 
-const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Argentina/Buenos_Aires' }).format(new Date());
-const upcomingShows = site.shows.upcoming.filter((show) => show.date >= today);
+const upcomingShows = getUpcomingShows();
 ---
 
 {upcomingShows.length > 0 && (
@@ -12,7 +11,7 @@ const upcomingShows = site.shows.upcoming.filter((show) => show.date >= today);
     <SectionHeading id="shows-title" eyebrow="Agenda" title="Fechas" intro={site.shows.agendaNote} />
     <div class="shows-list" aria-label="Próximas fechas">
       {upcomingShows.map((show) => (
-        <article class="show-card">
+        <article class="show-card" data-date={show.date}>
           <time class="show-card__date" datetime={show.date}>{show.dateLabel}</time>
           <div class="show-card__venue">
             <h3>{show.venue}</h3>
@@ -25,3 +24,15 @@ const upcomingShows = site.shows.upcoming.filter((show) => show.date >= today);
   </div>
 </section>
 )}
+
+<script>
+  // El sitio es estático: oculta las fechas que pasaron desde el último deploy y,
+  // si no queda ninguna, también la sección y los links «Fechas» del menú.
+  const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Argentina/Buenos_Aires' }).format(new Date());
+  const cards = [...document.querySelectorAll<HTMLElement>('.show-card[data-date]')];
+  cards.filter((card) => (card.dataset.date ?? '') < today).forEach((card) => card.remove());
+  if (cards.length && !document.querySelector('.show-card[data-date]')) {
+    document.getElementById('fechas')?.remove();
+    document.querySelectorAll('a[href="#fechas"]').forEach((link) => link.remove());
+  }
+</script>

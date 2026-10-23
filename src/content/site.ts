@@ -157,6 +157,12 @@ export const site = {
 
 export type Project = (typeof site.projects)[number];
 
+/** Fechas de hoy en adelante (hora de Buenos Aires). Se evalúa al compilar; Shows.astro repite el filtro en el navegador. */
+export function upcomingShows(): Show[] {
+  const today = new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Argentina/Buenos_Aires' }).format(new Date());
+  return site.shows.upcoming.filter((show) => show.date >= today);
+}
+
 export function isValidExternalUrl(value: string | null | undefined): value is string {
   if (!value) return false;
 
